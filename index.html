@@ -441,6 +441,92 @@
             line-height: 1.6;
         }
 
+        /* Track Record / Credibility */
+        .credibility-section {
+            background: #fff;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(0, 0, 0, 0.06);
+            margin-top: 64px;
+        }
+
+        .cred-card {
+            background: #fff;
+            padding: 44px 36px;
+            text-align: center;
+        }
+
+        .cred-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(154, 123, 10, 0.2);
+            border-radius: 50%;
+        }
+
+        .cred-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #9a7b0a;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .cred-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .cred-card p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
+        }
+
+        /* Testimonial / Pull Quote */
+        .pullquote-section {
+            background: #faf9f6;
+            text-align: center;
+        }
+
+        .pullquote {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .pullquote blockquote {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            color: #1a1a1a;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .pullquote cite {
+            font-family: 'IBM Plex Mono', monospace;
+            font-style: normal;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
         /* Forms Section */
         .forms-section {
             background: #f5f3ee;
@@ -634,6 +720,10 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 32px;
             }
+
+            .cred-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
@@ -741,7 +831,7 @@
                 <div class="hero-label animate">Real Estate Investment & Development</div>
                 <h1 class="animate animate-delay-1">We structure deals<br>that <em>others miss.</em></h1>
                 <p class="hero-description animate animate-delay-2">
-                    Auric Bridge is a principal-led investment firm focused on property development, creative finance, and asset recovery. Active in the U.S. and Portugal.
+                    Auric Bridge is a principal-led investment firm focused on property development, creative finance, and asset recovery. Active across the Mid-Atlantic and Portugal.
                 </p>
                 <a href="#contact" class="hero-cta animate animate-delay-3">
                     Start a Conversation
@@ -856,7 +946,7 @@
                     </div>
                     <div class="trust-detail">
                         <h4>Markets</h4>
-                        <p>Delaware, Maryland, surrounding areas. Ericeira corridor, Portugal.</p>
+                        <p>Delaware, Maryland, New Jersey, and surrounding areas. Ericeira corridor, Portugal.</p>
                     </div>
                     <div class="trust-detail">
                         <h4>Asset Types</h4>
@@ -867,6 +957,50 @@
                         <p>Principal-led. Creative structures. Fast decisions. Clean closings.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility -->
+    <section class="credibility-section">
+        <div class="container">
+            <div class="services-header">
+                <div class="section-label">Why Us</div>
+                <h2 class="section-title">Built on <em>trust.</em></h2>
+                <p class="section-subtitle">We close what we commit to. Our reputation is the business.</p>
+            </div>
+            <div class="cred-grid">
+                <div class="cred-card">
+                    <div class="cred-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h4>Principal-Led</h4>
+                    <p>Every deal is structured and closed by the same people. No handoffs. No junior associates learning on your property.</p>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h4>20+ Years in Real Estate</h4>
+                    <p>Two decades across acquisitions, rehabs, development, and creative deal structuring. Through four market cycles.</p>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h4>Active Operators</h4>
+                    <p>We're not passive investors. We buy, build, rehab, and manage. Skin in the game on every deal we touch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="pullquote-section">
+        <div class="container">
+            <div class="pullquote">
+                <blockquote>"The best deals happen when the people structuring them are the same people closing them."</blockquote>
+                <cite>The Auric Bridge Approach</cite>
             </div>
         </div>
     </section>
