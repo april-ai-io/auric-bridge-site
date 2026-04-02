@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auric Bridge, LLC | Real Estate Investment & Development</title>
-    <meta name="description" content="Auric Bridge, LLC. Real estate investment, development, and asset recovery. Based in Delaware.">
+    <meta name="description" content="Auric Bridge, LLC. Real estate investment, development, and asset recovery. Delaware. Portugal. Creative deal structures.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,216 +15,983 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #1a1a1a;
-            background: #fafaf8;
+            background: #0a0a0a;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Film Grain Overlay */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #c9a227;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c9a227;
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 40px;
         }
 
         .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .container-narrow {
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 24px;
         }
 
-        /* Header */
-        header {
-            padding: 48px 0 0;
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
         }
 
-        .logo-mark {
-            width: 48px;
-            height: 4px;
-            background: #b8960c;
-            margin-bottom: 32px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201, 162, 39, 0.06) 0%, transparent 60%);
+            pointer-events: none;
         }
 
-        h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #111;
-            margin-bottom: 8px;
+        .hero-content {
+            position: relative;
         }
 
-        .tagline {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #555;
-            margin-bottom: 0;
-        }
-
-        /* Divider */
-        .divider {
-            width: 100%;
-            height: 1px;
-            background: #e5e2db;
-            margin: 48px 0;
-        }
-
-        /* About */
-        .about p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .about p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* What We Do */
-        h2 {
-            font-size: 0.85rem;
-            font-weight: 500;
+        .hero-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #c9a227;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #888;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .services {
-            display: grid;
-            gap: 24px;
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: #c9a227;
         }
 
-        .service {
-            padding: 0;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+            font-weight: 700;
+            color: #f5f5f0;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+            max-width: 700px;
         }
 
-        .service h3 {
-            font-size: 1.05rem;
+        .hero h1 em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #c9a227;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 48px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
             font-weight: 500;
-            color: #111;
+            color: #0a0a0a;
+            background: #c9a227;
+            padding: 16px 36px;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: #d4af37;
+            transform: translateY(-1px);
+        }
+
+        .hero-cta svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 48px 40px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stats-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #c9a227;
             margin-bottom: 6px;
         }
 
-        .service p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
-            font-weight: 300;
+        .stat-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        /* Contact */
-        .contact-section {
-            background: #f3f1ec;
-            border-radius: 8px;
-            padding: 36px;
-            margin-bottom: 0;
-        }
-
-        .contact-section h2 {
+        /* Section Headers */
+        .section-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #c9a227;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .contact-section p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
-            font-weight: 300;
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: #c9a227;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: #f5f5f0;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
             margin-bottom: 20px;
         }
 
-        .contact-email {
-            display: inline-block;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #b8960c;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
+        .section-title em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #c9a227;
         }
 
-        .contact-email:hover {
-            border-bottom-color: #b8960c;
+        .section-subtitle {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        /* Service Cards */
+        .services-section {
+            background: #0a0a0a;
+        }
+
+        .services-header {
+            margin-bottom: 64px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 48px 36px;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a227;
+            transition: width 0.4s;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(201, 162, 39, 0.15);
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+        }
+
+        .service-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: #c9a227;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f5f5f0;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.7;
+        }
+
+        /* How It Works */
+        .process-section {
+            background: #0d0d0b;
+        }
+
+        .process-header {
+            margin-bottom: 72px;
+        }
+
+        .process-steps {
+            display: grid;
+            gap: 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 40px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            align-items: start;
+        }
+
+        .step-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            font-weight: 500;
+            color: rgba(201, 162, 39, 0.3);
+        }
+
+        .step-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #f5f5f0;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.7;
+        }
+
+        /* About / Trust Section */
+        .trust-section {
+            background: #0a0a0a;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .trust-text p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .trust-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .trust-details {
+            display: grid;
+            gap: 32px;
+        }
+
+        .trust-detail {
+            padding-left: 20px;
+            border-left: 2px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .trust-detail h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .trust-detail p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        /* Forms Section */
+        .forms-section {
+            background: #0d0d0b;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin-top: 64px;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 56px 44px;
+        }
+
+        .form-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5f5f0;
+            margin-bottom: 8px;
+        }
+
+        .form-card .form-subtitle {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #f5f5f0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            outline: none;
+            transition: all 0.3s;
+            -webkit-appearance: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: rgba(201, 162, 39, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group select option {
+            background: #1a1a1a;
+            color: #f5f5f0;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px 32px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #0a0a0a;
+            background: #c9a227;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            margin-top: 12px;
+        }
+
+        .form-submit:hover {
+            background: #d4af37;
+        }
+
+        .form-note {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.25);
+            margin-top: 16px;
+            text-align: center;
+            font-weight: 300;
         }
 
         /* Footer */
         footer {
-            padding: 48px 0;
-            text-align: center;
+            padding: 48px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: #0a0a0a;
         }
 
-        footer p {
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            font-family: 'IBM Plex Mono', monospace;
             font-size: 0.8rem;
-            color: #aaa;
+            font-weight: 500;
+            color: #c9a227;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-entity {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.25);
+            font-weight: 300;
+        }
+
+        .footer-right {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.2);
             font-weight: 300;
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            header {
-                padding: 32px 0 0;
+        @media (max-width: 900px) {
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            h1 {
-                font-size: 1.6rem;
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
             }
 
-            .tagline {
-                font-size: 1rem;
+            .forms-grid {
+                grid-template-columns: 1fr;
             }
 
-            .divider {
-                margin: 36px 0;
-            }
-
-            .contact-section {
-                padding: 28px 24px;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
             }
         }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .stats-bar {
+                padding: 36px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .process-step {
+                grid-template-columns: 48px 1fr;
+                gap: 20px;
+            }
+
+            .step-number {
+                font-size: 1.5rem;
+            }
+
+            .form-card {
+                padding: 36px 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-divider {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo-mark"></div>
-            <h1>Auric Bridge, LLC</h1>
-            <p class="tagline">Real estate investment and development.</p>
-        </header>
 
-        <div class="divider"></div>
+    <!-- Film Grain -->
+    <svg class="grain">
+        <filter id="grain-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+    </svg>
 
-        <section class="about">
-            <p>Auric Bridge is a Delaware-based real estate investment company focused on property development, creative deal structuring, and asset recovery. We operate at the intersection of domestic and international markets, with active projects in the U.S. and Portugal.</p>
-            <p>We take a principal-led approach. Every deal is structured, managed, and executed by our team. No middlemen. No layers.</p>
-        </section>
+    <!-- Nav -->
+    <nav>
+        <a href="#" class="nav-logo">Auric Bridge</a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <div class="divider"></div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label animate">Real Estate Investment & Development</div>
+                <h1 class="animate animate-delay-1">We structure deals<br>that <em>others miss.</em></h1>
+                <p class="hero-description animate animate-delay-2">
+                    Auric Bridge is a principal-led investment firm focused on property development, creative finance, and asset recovery. Active in the U.S. and Portugal.
+                </p>
+                <a href="#contact" class="hero-cta animate animate-delay-3">
+                    Start a Conversation
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>What We Do</h2>
-            <div class="services">
-                <div class="service">
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Active Markets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">DE</div>
+                <div class="stat-label">Incorporated</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="services-header">
+                <div class="section-label">What We Do</div>
+                <h2 class="section-title">Three verticals.<br>One <em>approach.</em></h2>
+                <p class="section-subtitle">Every deal we touch follows the same principle: find the asymmetry, structure it right, execute with precision.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
                     <h3>Property Development</h3>
-                    <p>Ground-up residential development in high-growth markets. Currently developing in the Ericeira corridor, Portugal.</p>
+                    <p>Ground-up residential builds in high-growth international markets. Currently developing three lots in the Ericeira surf corridor, Portugal.</p>
                 </div>
-                <div class="service">
-                    <h3>Creative Deal Structuring</h3>
-                    <p>Joint ventures, option agreements, and non-traditional financing structures that align incentives between capital and execution.</p>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Creative Finance</h3>
+                    <p>Joint ventures, option agreements, and non-traditional deal structures. We align capital with execution so both sides win.</p>
                 </div>
-                <div class="service">
+                <div class="service-card">
+                    <div class="service-number">03</div>
                     <h3>Asset Recovery</h3>
-                    <p>Identification and recovery of surplus funds from tax and sheriff sales on behalf of former property owners.</p>
+                    <p>Surplus fund recovery from tax and sheriff sales. We identify unclaimed proceeds and return them to former property owners.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <div class="divider"></div>
+    <!-- Process -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="process-header">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">Direct. No <em>layers.</em></h2>
+                <p class="section-subtitle">We operate as principals, not brokers. When you work with Auric Bridge, you're working with decision-makers from day one.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Tell us what you have.</h3>
+                        <p>A property, a deal, a situation. Fill out the form or send us an email. We respond within 48 hours.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>We evaluate and present options.</h3>
+                        <p>We look at the deal, run the numbers, and come back with a structure that works for everyone involved.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>You choose. We close.</h3>
+                        <p>Pick the structure and timeline that fits. We handle the execution from contract to closing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="contact-section">
-            <h2>Get in Touch</h2>
-            <p>For inquiries about partnerships, deals, or general questions.</p>
-            <a href="mailto:info@auricbridge.com" class="contact-email">info@auricbridge.com</a>
-        </section>
+    <!-- About / Trust -->
+    <section class="trust-section" id="about">
+        <div class="container">
+            <div class="services-header">
+                <div class="section-label">Who We Are</div>
+                <h2 class="section-title">A family operation.<br>Eight people <em>deep.</em></h2>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-text">
+                    <p>Auric Bridge is built on a simple idea: the best deals happen when the people structuring them are the same people executing them.</p>
+                    <p>We're a family-run real estate investment firm with two decades of experience across acquisitions, development, remodels, and creative deal structuring. No outside investors telling us what to do. No committee approvals. Principals at the table, every time.</p>
+                </div>
+                <div class="trust-details">
+                    <div class="trust-detail">
+                        <h4>Entity</h4>
+                        <p>Auric Bridge, LLC. Incorporated in Delaware.</p>
+                    </div>
+                    <div class="trust-detail">
+                        <h4>Markets</h4>
+                        <p>Delaware, Maryland, surrounding areas. Ericeira corridor, Portugal.</p>
+                    </div>
+                    <div class="trust-detail">
+                        <h4>Asset Types</h4>
+                        <p>Single family, townhomes, multi-family, land, development lots, portfolios.</p>
+                    </div>
+                    <div class="trust-detail">
+                        <h4>Approach</h4>
+                        <p>Principal-led. Creative structures. Fast decisions. Clean closings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2026 Auric Bridge, LLC. All rights reserved.</p>
-        </footer>
-    </div>
+    <!-- Contact Forms -->
+    <section class="forms-section" id="contact">
+        <div class="container">
+            <div class="services-header">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Have a deal? <em>Let's talk.</em></h2>
+                <p class="section-subtitle">Whether you have a property, a partnership opportunity, or surplus funds to recover, we want to hear from you.</p>
+            </div>
+            <div class="forms-grid">
+                <!-- Property Form -->
+                <div class="form-card">
+                    <h3>I Have a Property</h3>
+                    <p class="form-subtitle">Tell us your situation. No commitment. We'll come back with options.</p>
+                    <form action="https://formspree.io/f/placeholder" method="POST">
+                        <input type="hidden" name="_subject" value="Auric Bridge - Property Inquiry">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" name="first_name" placeholder="First name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="last_name" placeholder="Last name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="you@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" placeholder="(000) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Property Address</label>
+                            <input type="text" name="property_address" placeholder="Street, City, State" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Situation</label>
+                            <select name="situation" required>
+                                <option value="" disabled selected>Select one</option>
+                                <option value="behind_on_payments">Behind on payments</option>
+                                <option value="inherited">Inherited property</option>
+                                <option value="tired_landlord">Tired landlord</option>
+                                <option value="divorce">Going through a divorce</option>
+                                <option value="needs_repairs">Needs repairs</option>
+                                <option value="want_top_dollar">Want top dollar</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tell Us More</label>
+                            <textarea name="details" placeholder="What's going on with the property?"></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Submit Property</button>
+                        <p class="form-note">We respond within 48 hours. Your information stays with us.</p>
+                    </form>
+                </div>
+
+                <!-- Partnership / General Form -->
+                <div class="form-card">
+                    <h3>Partnership or General Inquiry</h3>
+                    <p class="form-subtitle">Joint ventures, referrals, surplus fund claims, or general questions.</p>
+                    <form action="https://formspree.io/f/placeholder" method="POST">
+                        <input type="hidden" name="_subject" value="Auric Bridge - General Inquiry">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" name="first_name" placeholder="First name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="last_name" placeholder="Last name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="you@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" placeholder="(000) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Inquiry Type</label>
+                            <select name="inquiry_type" required>
+                                <option value="" disabled selected>Select one</option>
+                                <option value="joint_venture">Joint venture opportunity</option>
+                                <option value="referral">I know someone with a property</option>
+                                <option value="surplus_funds">Surplus fund recovery</option>
+                                <option value="development">Development partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="Tell us what you're looking to do."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                        <p class="form-note">We respond within 48 hours. Your information stays with us.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-logo">Auric Bridge</span>
+                <span class="footer-divider"></span>
+                <span class="footer-entity">Auric Bridge, LLC. Delaware.</span>
+            </div>
+            <div class="footer-right">
+                &copy; 2026 All rights reserved.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
