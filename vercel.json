@@ -1,5 +1,9 @@
 {
   "buildCommand": null,
   "outputDirectory": ".",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/api/property-inquiry", "destination": "/api/property-inquiry" },
+    { "source": "/api/general-inquiry", "destination": "/api/general-inquiry" }
+  ]
 }
