@@ -3,58 +3,76 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { first_name, last_name, email, phone, property_address, situation, details } = req.body;
+  const body = req.body || {};
+  const first_name = body.first_name;
+  const last_name = body.last_name;
+  const email = body.email;
+  const phone = body.phone;
+  const property_address = body.property_address;
+  const situation = body.situation;
+  const details = body.details;
 
   if (!first_name || !last_name || !email || !property_address) {
-    return res.status(400).json({ error: 'Missing required fields' });
+    return res.status(400).json({
+      error: 'Missing required fields',
+      debug: { hasBody: !!req.body, keys: Object.keys(body), contentType: req.headers['content-type'] }
+    });
   }
 
   const GHL_API_KEY = process.env.GHL_API_KEY;
   const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
 
+  if (!GHL_API_KEY || !GHL_LOCATION_ID) {
+    return res.status(500).json({ error: 'Missing environment variables' });
+  }
+
+  const payload = {
+    locationId: GHL_LOCATION_ID,
+    firstName: first_name,
+    lastName: last_name,
+    email: email,
+    phone: phone || '',
+    address1: property_address,
+    tags: ['website-property-lead', 'situation-' + (situation || 'unknown')],
+    source: 'Auric Bridge Website'
+  };
+
   try {
-    // Create or update contact in GHL
     const contactRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${GHL_API_KEY}`,
+        'Authorization': 'Bearer ' + GHL_API_KEY,
         'Content-Type': 'application/json',
         'Version': '2021-07-28'
       },
-      body: JSON.stringify({
-        locationId: GHL_LOCATION_ID,
-        firstName: first_name,
-        lastName: last_name,
-        email: email,
-        phone: phone || '',
-        address1: property_address,
-        tags: ['website-property-lead', `situation-${situation || 'unknown'}`],
-        source: 'Auric Bridge Website'
-      })
+      body: JSON.stringify(payload)
     });
 
+    const responseText = await contactRes.text();
+
     if (!contactRes.ok) {
-      const errBody = await contactRes.text();
-      console.error('GHL contact error:', contactRes.status, errBody);
-      return res.status(500).json({ error: 'Failed to create contact' });
+      return res.status(500).json({
+        error: 'GHL API error',
+        status: contactRes.status,
+        ghlResponse: responseText
+      });
     }
 
-    const contactData = await contactRes.json();
+    const contactData = JSON.parse(responseText);
     const contactId = contactData?.contact?.id;
 
-    // Add a note with the full submission details
     if (contactId) {
       const noteBody = [
-        `Property Inquiry from Website`,
-        `Property: ${property_address}`,
-        `Situation: ${situation || 'Not specified'}`,
-        `Details: ${details || 'None provided'}`
+        'Property Inquiry from Website',
+        'Property: ' + property_address,
+        'Situation: ' + (situation || 'Not specified'),
+        'Details: ' + (details || 'None provided')
       ].join('\n');
 
-      await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
+      await fetch('https://services.leadconnectorhq.com/contacts/' + contactId + '/notes', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${GHL_API_KEY}`,
+          'Authorization': 'Bearer ' + GHL_API_KEY,
           'Content-Type': 'application/json',
           'Version': '2021-07-28'
         },
@@ -64,7 +82,6 @@ export default async function handler(req, res) {
 
     return res.redirect(302, '/?submitted=property');
   } catch (err) {
-    console.error('Server error:', err);
-    return res.status(500).json({ error: 'Server error' });
+    return res.status(500).json({ error: 'Server error', message: err.message });
   }
 }
