@@ -22,7 +22,7 @@
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #1a1a1a;
-            background: #0a0a0a;
+            background: #faf9f6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -36,7 +36,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.035;
+            opacity: 0.025;
         }
 
         /* Nav */
@@ -50,17 +50,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 10, 0.85);
+            background: rgba(250, 249, 246, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .nav-logo {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.85rem;
             font-weight: 500;
-            color: #c9a227;
+            color: #9a7b0a;
             letter-spacing: 0.05em;
             text-decoration: none;
         }
@@ -75,7 +75,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.75rem;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(0, 0, 0, 0.4);
             text-decoration: none;
             letter-spacing: 0.05em;
             text-transform: uppercase;
@@ -83,7 +83,7 @@
         }
 
         .nav-links a:hover {
-            color: #c9a227;
+            color: #9a7b0a;
         }
 
         /* Sections */
@@ -96,11 +96,6 @@
             margin: 0 auto;
         }
 
-        .container-narrow {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -108,6 +103,7 @@
             align-items: center;
             padding-top: 80px;
             position: relative;
+            background: #faf9f6;
         }
 
         .hero::before {
@@ -117,7 +113,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(201, 162, 39, 0.06) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 30% 50%, rgba(201, 162, 39, 0.07) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -129,7 +125,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.75rem;
             font-weight: 400;
-            color: #c9a227;
+            color: #9a7b0a;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             margin-bottom: 32px;
@@ -142,13 +138,13 @@
             content: '';
             width: 40px;
             height: 1px;
-            background: #c9a227;
+            background: #9a7b0a;
         }
 
         .hero h1 {
             font-size: clamp(2.5rem, 5.5vw, 4.2rem);
             font-weight: 700;
-            color: #f5f5f0;
+            color: #1a1a1a;
             line-height: 1.1;
             letter-spacing: -0.03em;
             margin-bottom: 32px;
@@ -159,13 +155,13 @@
             font-family: 'Instrument Serif', serif;
             font-style: italic;
             font-weight: 400;
-            color: #c9a227;
+            color: #9a7b0a;
         }
 
         .hero-description {
             font-size: 1.15rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(0, 0, 0, 0.5);
             line-height: 1.7;
             max-width: 520px;
             margin-bottom: 48px;
@@ -178,8 +174,8 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.8rem;
             font-weight: 500;
-            color: #0a0a0a;
-            background: #c9a227;
+            color: #fff;
+            background: #1a1a1a;
             padding: 16px 36px;
             text-decoration: none;
             letter-spacing: 0.05em;
@@ -188,7 +184,7 @@
         }
 
         .hero-cta:hover {
-            background: #d4af37;
+            background: #333;
             transform: translateY(-1px);
         }
 
@@ -204,10 +200,10 @@
 
         /* Stats Bar */
         .stats-bar {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
             padding: 48px 40px;
-            background: rgba(255, 255, 255, 0.02);
+            background: #f5f3ee;
         }
 
         .stats-grid {
@@ -226,7 +222,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 2.2rem;
             font-weight: 700;
-            color: #c9a227;
+            color: #9a7b0a;
             margin-bottom: 6px;
         }
 
@@ -234,7 +230,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.7rem;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(0, 0, 0, 0.4);
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
@@ -244,7 +240,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.7rem;
             font-weight: 400;
-            color: #c9a227;
+            color: #9a7b0a;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             margin-bottom: 16px;
@@ -257,13 +253,13 @@
             content: '';
             width: 24px;
             height: 1px;
-            background: #c9a227;
+            background: #9a7b0a;
         }
 
         .section-title {
             font-size: clamp(1.8rem, 3.5vw, 2.6rem);
             font-weight: 700;
-            color: #f5f5f0;
+            color: #1a1a1a;
             letter-spacing: -0.02em;
             line-height: 1.15;
             margin-bottom: 20px;
@@ -273,20 +269,20 @@
             font-family: 'Instrument Serif', serif;
             font-style: italic;
             font-weight: 400;
-            color: #c9a227;
+            color: #9a7b0a;
         }
 
         .section-subtitle {
             font-size: 1.05rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(0, 0, 0, 0.5);
             line-height: 1.7;
             max-width: 560px;
         }
 
         /* Service Cards */
         .services-section {
-            background: #0a0a0a;
+            background: #faf9f6;
         }
 
         .services-header {
@@ -296,12 +292,12 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
+            gap: 1px;
+            background: rgba(0, 0, 0, 0.06);
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #fff;
             padding: 48px 36px;
             transition: all 0.4s;
             position: relative;
@@ -314,13 +310,13 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #c9a227;
+            background: #9a7b0a;
             transition: width 0.4s;
         }
 
         .service-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(201, 162, 39, 0.15);
+            background: #fdfcf9;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
 
         .service-card:hover::before {
@@ -330,7 +326,7 @@
         .service-number {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.7rem;
-            color: #c9a227;
+            color: #9a7b0a;
             margin-bottom: 24px;
             letter-spacing: 0.05em;
         }
@@ -338,7 +334,7 @@
         .service-card h3 {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #f5f5f0;
+            color: #1a1a1a;
             margin-bottom: 16px;
             letter-spacing: -0.01em;
         }
@@ -346,13 +342,13 @@
         .service-card p {
             font-size: 0.9rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(0, 0, 0, 0.5);
             line-height: 1.7;
         }
 
         /* How It Works */
         .process-section {
-            background: #0d0d0b;
+            background: #f5f3ee;
         }
 
         .process-header {
@@ -369,7 +365,7 @@
             grid-template-columns: 80px 1fr;
             gap: 40px;
             padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
             align-items: start;
         }
 
@@ -377,26 +373,26 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 2rem;
             font-weight: 500;
-            color: rgba(201, 162, 39, 0.3);
+            color: rgba(154, 123, 10, 0.25);
         }
 
         .step-content h3 {
             font-size: 1.15rem;
             font-weight: 600;
-            color: #f5f5f0;
+            color: #1a1a1a;
             margin-bottom: 10px;
         }
 
         .step-content p {
             font-size: 0.95rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(0, 0, 0, 0.5);
             line-height: 1.7;
         }
 
         /* About / Trust Section */
         .trust-section {
-            background: #0a0a0a;
+            background: #faf9f6;
         }
 
         .trust-grid {
@@ -409,7 +405,7 @@
         .trust-text p {
             font-size: 1.05rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(0, 0, 0, 0.55);
             line-height: 1.8;
             margin-bottom: 24px;
         }
@@ -425,14 +421,14 @@
 
         .trust-detail {
             padding-left: 20px;
-            border-left: 2px solid rgba(201, 162, 39, 0.3);
+            border-left: 2px solid rgba(154, 123, 10, 0.3);
         }
 
         .trust-detail h4 {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.7rem;
             font-weight: 500;
-            color: #c9a227;
+            color: #9a7b0a;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 8px;
@@ -441,39 +437,39 @@
         .trust-detail p {
             font-size: 0.9rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(0, 0, 0, 0.5);
             line-height: 1.6;
         }
 
         /* Forms Section */
         .forms-section {
-            background: #0d0d0b;
+            background: #f5f3ee;
         }
 
         .forms-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2px;
+            gap: 1px;
+            background: rgba(0, 0, 0, 0.06);
             margin-top: 64px;
         }
 
         .form-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #fff;
             padding: 56px 44px;
         }
 
         .form-card h3 {
             font-size: 1.3rem;
             font-weight: 600;
-            color: #f5f5f0;
+            color: #1a1a1a;
             margin-bottom: 8px;
         }
 
         .form-card .form-subtitle {
             font-size: 0.85rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(0, 0, 0, 0.45);
             margin-bottom: 36px;
             line-height: 1.6;
         }
@@ -487,7 +483,7 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.65rem;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(0, 0, 0, 0.4);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 8px;
@@ -501,9 +497,10 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.9rem;
             font-weight: 400;
-            color: #f5f5f0;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #1a1a1a;
+            background: #faf9f6;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 0;
             outline: none;
             transition: all 0.3s;
             -webkit-appearance: none;
@@ -511,24 +508,25 @@
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(0, 0, 0, 0.25);
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: rgba(201, 162, 39, 0.4);
-            background: rgba(255, 255, 255, 0.06);
+            border-color: #9a7b0a;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(154, 123, 10, 0.08);
         }
 
         .form-group select {
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(0, 0, 0, 0.5);
         }
 
         .form-group select option {
-            background: #1a1a1a;
-            color: #f5f5f0;
+            background: #fff;
+            color: #1a1a1a;
         }
 
         .form-group textarea {
@@ -548,8 +546,8 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.75rem;
             font-weight: 500;
-            color: #0a0a0a;
-            background: #c9a227;
+            color: #fff;
+            background: #1a1a1a;
             border: none;
             cursor: pointer;
             letter-spacing: 0.08em;
@@ -559,12 +557,12 @@
         }
 
         .form-submit:hover {
-            background: #d4af37;
+            background: #333;
         }
 
         .form-note {
             font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(0, 0, 0, 0.3);
             margin-top: 16px;
             text-align: center;
             font-weight: 300;
@@ -573,8 +571,8 @@
         /* Footer */
         footer {
             padding: 48px 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            background: #0a0a0a;
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
+            background: #faf9f6;
         }
 
         .footer-content {
@@ -595,25 +593,25 @@
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.8rem;
             font-weight: 500;
-            color: #c9a227;
+            color: #9a7b0a;
             letter-spacing: 0.05em;
         }
 
         .footer-divider {
             width: 1px;
             height: 16px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.12);
         }
 
         .footer-entity {
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(0, 0, 0, 0.35);
             font-weight: 300;
         }
 
         .footer-right {
             font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(0, 0, 0, 0.3);
             font-weight: 300;
         }
 
