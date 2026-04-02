@@ -13,10 +13,7 @@ export default async function handler(req, res) {
   const details = body.details;
 
   if (!first_name || !last_name || !email || !property_address) {
-    return res.status(400).json({
-      error: 'Missing required fields',
-      debug: { hasBody: !!req.body, keys: Object.keys(body), contentType: req.headers['content-type'] }
-    });
+    return res.status(400).json({ error: 'Missing required fields' });
   }
 
   const GHL_API_KEY = process.env.GHL_API_KEY;
@@ -51,11 +48,8 @@ export default async function handler(req, res) {
     const responseText = await contactRes.text();
 
     if (!contactRes.ok) {
-      return res.status(500).json({
-        error: 'GHL API error',
-        status: contactRes.status,
-        ghlResponse: responseText
-      });
+      console.error('GHL error:', contactRes.status, responseText);
+      return res.status(500).json({ error: 'Failed to create contact' });
     }
 
     const contactData = JSON.parse(responseText);
