@@ -27,22 +27,36 @@ export default async function handler(req, res) {
         email: email,
         phone: phone || '',
         tags: ['website-general-inquiry', `inquiry-${inquiry_type || 'other'}`],
-        source: 'Auric Bridge Website',
-        customFields: [
-          { key: 'inquiry_type', value: inquiry_type || '' },
-          { key: 'message', value: message || '' }
-        ]
+        source: 'Auric Bridge Website'
       })
     });
 
     if (!contactRes.ok) {
       const errBody = await contactRes.text();
-      console.error('GHL API error:', contactRes.status, errBody);
+      console.error('GHL contact error:', contactRes.status, errBody);
       return res.status(500).json({ error: 'Failed to create contact' });
     }
 
-    const contact = await contactRes.json();
-    console.log('Contact created/updated:', contact?.contact?.id);
+    const contactData = await contactRes.json();
+    const contactId = contactData?.contact?.id;
+
+    if (contactId) {
+      const noteBody = [
+        `General Inquiry from Website`,
+        `Type: ${inquiry_type || 'Not specified'}`,
+        `Message: ${message || 'None provided'}`
+      ].join('\n');
+
+      await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${GHL_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Version': '2021-07-28'
+        },
+        body: JSON.stringify({ body: noteBody })
+      });
+    }
 
     return res.redirect(302, '/?submitted=general');
   } catch (err) {

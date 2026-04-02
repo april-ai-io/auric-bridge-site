@@ -29,25 +29,39 @@ export default async function handler(req, res) {
         phone: phone || '',
         address1: property_address,
         tags: ['website-property-lead', `situation-${situation || 'unknown'}`],
-        source: 'Auric Bridge Website',
-        customFields: [
-          { key: 'property_address', value: property_address },
-          { key: 'situation', value: situation || '' },
-          { key: 'details', value: details || '' }
-        ]
+        source: 'Auric Bridge Website'
       })
     });
 
     if (!contactRes.ok) {
       const errBody = await contactRes.text();
-      console.error('GHL API error:', contactRes.status, errBody);
+      console.error('GHL contact error:', contactRes.status, errBody);
       return res.status(500).json({ error: 'Failed to create contact' });
     }
 
-    const contact = await contactRes.json();
-    console.log('Contact created/updated:', contact?.contact?.id);
+    const contactData = await contactRes.json();
+    const contactId = contactData?.contact?.id;
 
-    // Redirect to thank you
+    // Add a note with the full submission details
+    if (contactId) {
+      const noteBody = [
+        `Property Inquiry from Website`,
+        `Property: ${property_address}`,
+        `Situation: ${situation || 'Not specified'}`,
+        `Details: ${details || 'None provided'}`
+      ].join('\n');
+
+      await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${GHL_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Version': '2021-07-28'
+        },
+        body: JSON.stringify({ body: noteBody })
+      });
+    }
+
     return res.redirect(302, '/?submitted=property');
   } catch (err) {
     console.error('Server error:', err);
