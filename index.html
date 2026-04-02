@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auric Bridge, LLC | Real Estate Investment & Development</title>
+    <meta name="description" content="Auric Bridge, LLC. Real estate investment, development, and asset recovery. Based in Delaware.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a1a;
+            background: #fafaf8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0 0;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 4px;
+            background: #b8960c;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: #e5e2db;
+            margin: 48px 0;
+        }
+
+        /* About */
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* What We Do */
+        h2 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .services {
+            display: grid;
+            gap: 24px;
+        }
+
+        .service {
+            padding: 0;
+        }
+
+        .service h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 6px;
+        }
+
+        .service p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: #f3f1ec;
+            border-radius: 8px;
+            padding: 36px;
+            margin-bottom: 0;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 16px;
+        }
+
+        .contact-section p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #b8960c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-email:hover {
+            border-bottom-color: #b8960c;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header {
+                padding: 32px 0 0;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .divider {
+                margin: 36px 0;
+            }
+
+            .contact-section {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-mark"></div>
+            <h1>Auric Bridge, LLC</h1>
+            <p class="tagline">Real estate investment and development.</p>
+        </header>
+
+        <div class="divider"></div>
+
+        <section class="about">
+            <p>Auric Bridge is a Delaware-based real estate investment company focused on property development, creative deal structuring, and asset recovery. We operate at the intersection of domestic and international markets, with active projects in the U.S. and Portugal.</p>
+            <p>We take a principal-led approach. Every deal is structured, managed, and executed by our team. No middlemen. No layers.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section>
+            <h2>What We Do</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>Property Development</h3>
+                    <p>Ground-up residential development in high-growth markets. Currently developing in the Ericeira corridor, Portugal.</p>
+                </div>
+                <div class="service">
+                    <h3>Creative Deal Structuring</h3>
+                    <p>Joint ventures, option agreements, and non-traditional financing structures that align incentives between capital and execution.</p>
+                </div>
+                <div class="service">
+                    <h3>Asset Recovery</h3>
+                    <p>Identification and recovery of surplus funds from tax and sheriff sales on behalf of former property owners.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <p>For inquiries about partnerships, deals, or general questions.</p>
+            <a href="mailto:info@auricbridge.com" class="contact-email">info@auricbridge.com</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Auric Bridge, LLC. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
